@@ -1,0 +1,276 @@
+CONFERENCE
+
+create table CONFERENCE(
+conf_name char(15) unique not null,
+conf_num INTEGER unique not null,
+primary key (conf_num)
+);
+
+DIVISION
+
+create table DIVISION(
+div_num INTEGER unique not null,
+div_name char(25) unique not null,
+conf_num INTEGER NOT NULL,
+FOREIGN KEY (conf_num) references CONFERENCE,
+PRIMARY KEY (div_num)
+);
+
+TEAM
+
+create table TEAM(
+team_num INTEGER PRIMARY KEY unique not null,
+team_name char(25) unique not null,
+team_mascot char(25) unique not null,
+team_home char(25) unique not null,
+team_arena char(20) unique not null,
+team_coach char(25) unique not null,
+div_num INTEGER not null,
+FOREIGN KEY (div_num) references DIVISION
+);
+
+PLAYER
+
+create table PLAYER(
+player_num INTEGER unique not null PRIMARY KEY,
+player_fName char(15) not null,
+player_lName char(15) unique not null,
+team_num INTEGER not null,
+FOREIGN KEY (team_num) references TEAM
+);
+
+GAME
+
+create table GAME(
+game_num INTEGER unique not null PRIMARY KEY,
+team_1 char(25) not null,
+team_2 char(25) not null,
+game_score varchar(7) not null,
+game_arena char(20) not null,
+game_description char(100)
+);
+
+EMPLOYEE
+
+create table EMPLOYEE(
+emp_num INTEGER unique not null PRIMARY KEY,
+emp_fName char(20) not null,
+emp_lName char(20) not null,
+emp_role char(30) not null
+);
+
+
+
+
+INSERT INTO STATEMENTS
+
+TEAM
+
+insert into TEAM values (1, 'Indiana Pacers', 
+'Boomer', 'Indianapolis, IN', 'Bankers Life Fieldhouse',
+ 'Nate McMillan', 5);
+
+
+insert into TEAM values (2, 'Toronto Raptors', 
+'Raptor', 'Toronto', 'Scotiabank Arena',
+ 'Nick Nurse', 4);
+
+
+insert into TEAM values (3, 'Utah Jazz', 
+'Jazz Bear', 'Salt Lake City, UT', 'Vivint Smart Home Arena',
+ 'Quin Snyder', 1);
+
+
+insert into TEAM values (4, 'Boston Celtics', 
+'Lucky', 'Boston, MA', 'TD Garden',
+ 'Brad Stevens', 4);
+
+
+insert into TEAM values (5, 'Detroit Pistons', 
+'Hooper', 'Detroit, MI', 'Little Caesars Arena',
+ 'Ed Stefanzki', 5);
+
+insert into TEAM values (6, 'Los_Angeles_Lakers',
+'NONE', 'Los_Angeles,_CA', 'Staples_Center',
+'Frank_Vogel', 2);
+
+insert into TEAM values (7, 'Memphis_Grizzlies',
+'Grizz', 'Memphis,_TN', 'FedExForum',
+'Taylor_Jenkins', 3);
+
+
+PLAYER
+
+insert into player values (1, 'Aaron', 'Holiday', 1);
+
+
+insert into player values (2, 'T.J.', 'Warren', 1);
+
+
+insert into player values (3, 'Goga', 'Bitadze', 1);
+
+
+insert into player values (4, 'Alize', 'Johnson', 1);
+
+
+insert into player values (5, 'Doug', 'McDermott', 1);
+
+
+insert into player values (6, 'Kyle', 'Lowry', 2);
+
+
+insert into player values (7, 'Serge', 'Ibaka', 2);
+
+
+insert into player values (8, 'Pascal', 'Siakam', 2);
+
+
+insert into player values (9, 'Fred', 'VanVleet', 2);
+
+
+insert into player values (10, 'Dewan', 'Hernandez', 2);
+
+
+insert into player values (11, 'Rudy', 'Gobert', 3);
+
+
+insert into player values (12, 'Donovan', 'Mitchell', 3);
+
+
+insert into player values (13, 'Georges', 'Niang', 3);
+
+
+insert into player values (14, 'Tony', 'Bradley', 3);
+
+
+insert into player values (15, 'Miye', 'Oni', 3);
+
+
+insert into player values (16, 'Jason', 'Tatum', 4);
+
+
+insert into player values (17, 'Kemba', 'Walker', 4);
+
+
+insert into player values (18, 'Gordon', 'Hayward', 4);
+
+
+insert into player values (19, 'Tacko', 'Fall', 4);
+
+
+insert into player values (20, 'Romeo', 'Langford', 4);
+
+
+insert into player values (21, 'Derrick', 'Rose', 5);
+
+
+insert into player values (22, 'Blake', 'Griffin', 5);
+
+
+insert into player values (23, 'Christian', 'Wood', 5);
+
+
+insert into player values (24, 'Brandon', 'Knight', 5);
+
+
+insert into player values (25, 'Thon', 'Maker', 5);
+
+
+
+
+GAME
+
+insert into game values (1, 'Indiana Pacers', 'Utah Jazz',
+'54-46', 'Vivint Smart Home Arena', 'The Pacers won by 8 points.');
+
+insert into game values (2, 'Toronto Raptors', 'Boston Celtics',
+'27-78', 'TD Garden', 'The Raptors lost to the Celtics by a whopping 51 points.');
+
+insert into game values (3, 'Indiana Pacers', 'Detroit Pistons',
+'68-48', 'Little Caesars Arena', 'The Pacers won another game!');
+
+insert into game values (4, 'Boston Celtics', 'Detroit Pistons',
+'54-50', 'TD Garden', 'The Celtics beat the Pistons by a narrow 4 points.');
+
+insert into game values (5, 'Indiana Pacers', 'Boston Celtics',
+'76-74', 'Bankers Life Fieldhouse', 'The pacers won by the skin of their teeth with 2 points against the Celtics.');
+
+
+EMPLOYEE
+
+insert into EMPLOYEE values(146534, 'Patrick', 'Picarty', 'Programmer');
+
+insert into EMPLOYEE values(178652, 'Martha', 'Louise', 'Manager');
+
+insert into EMPLOYEE values(125438, 'Tony', 'Vallore', 'Programmer');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
